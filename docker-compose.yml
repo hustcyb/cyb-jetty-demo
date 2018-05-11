@@ -1,0 +1,6 @@
+version: '3'
+services:
+  cyb-jetty-demo:
+    image: hustcyb/cyb-jetty-demo:1.0.0-SNAPSHOT
+    ports:
+      - "8080:8080"
