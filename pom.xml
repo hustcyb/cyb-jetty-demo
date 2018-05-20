@@ -51,6 +51,16 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <configuration>
+		          <packagingExcludes>
+		              WEB-INF/classes/*.yml,
+		              WEB-INF/classes/*.properties,
+		              WEB-INF/classes/*.xml
+		          </packagingExcludes>
+		        </configuration>
+			</plugin>
+			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>${dockerfile-maven-plugin.version}</version>
@@ -69,6 +79,7 @@
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 					<buildArgs>
 						<WAR_FILE>target/${project.build.finalName}.war</WAR_FILE>
+						<CONFIG_DIR>src/main/resources/profiles/${build.profile.id}/</CONFIG_DIR>
 					</buildArgs>
 				</configuration>
 			</plugin>
